@@ -18,6 +18,7 @@ async function getAllInventors(){
                         .collection('inventors')
                         .find()
                         .toArray();
+    //console.log(inventors);
     return inventors;
 }
 
@@ -43,12 +44,26 @@ async function pushInventor(inventor){
     return result;
 }
 
-function updateInventor(inventor){
-
+async function updateInventor(inventor){
+    const connectionMongo = await connection.getConnection();
+    const query = {_id: parseInt(inventor._id)}
+    const newvalues = {
+        $set: {
+            first: inventor.first, last: inventor.last, year: inventor.year, img: inventor.img
+        }
+    }
+    const result = await connectionMongo.db('sample_tp2')
+                        .collection('inventors')
+                        .updateOne(query, newvalues);
+    return result;
 }
 
-function deleteInventor(id){
-
+async function deleteInventor(id){
+    const connectionMongo = await connection.getConnection();
+    const result = await connectionMongo.db('sample_tp2')
+                    .collection('inventors')
+                    .deleteOne({_id: parseInt(id)});
+    return result;
 }
 
 module.exports = {getAllInventors, getInventor, pushInventor, updateInventor, deleteInventor}

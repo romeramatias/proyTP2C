@@ -28,13 +28,26 @@ router.post('/', async (req, res) =>{
 });
 
 // Modificacion de inventor
-router.put('/:id', (req, res) =>{
+router.put('/:id', async (req, res) =>{
+  const inventor = req.body;
 
+  try {
+    inventor._id = req.params.id;
+    const result = await dataInventor.updateInventor(inventor);
+    res.json(result);
+  } catch (error) {
+    res.status(500).send(error);
+  }
 });
 
 // Eliminacion de inventor
-router.delete('/:id', (req, res)=>{
-
+router.delete('/:id', async (req, res)=>{
+  try {
+    const result = await dataInventor.deleteInventor(req.params.id);
+    res.send(result);
+  } catch (error) {
+    res.status(500).send(error);
+  }
 });
 
 module.exports = router;
