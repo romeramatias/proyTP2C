@@ -17,9 +17,14 @@ router.get('/:id', async (req, res) => {
 // Alta de inventor
 router.post('/', async (req, res) =>{
     const inventor = req.body;
-    await dataInventor.pushInventor(inventor);
-    const inventorPersistido = await dataInventor.getInventor(inventor._id);
-    res.json(inventorPersistido);
+    try{
+      const result = await dataInventor.pushInventor(inventor);
+      //const inventorPersistido = await dataInventor.getInventor(inventor._id);
+      res.json(result);
+    }
+    catch (error) {
+      res.status(500).send(error);
+    }
 });
 
 // Modificacion de inventor
