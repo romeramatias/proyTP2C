@@ -1,0 +1,29 @@
+Registrarse con este esquema en la ruta '/users/registrarse':
+{
+    "username": "xxx",
+    "email": "xxx@gmail.com",
+    "password": "xxx"
+}
+
+Identificarse con este esquema en la ruta '/users/identificarse':
+{
+    "email": "xxx@gmail.com",
+    "password": "xxx"
+}
+
+Una vez logeado, el body del response les va a dar un json con el siguiente esquema
+{
+    "autorizacion": true,
+    "token": "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "mensaje": "Sesión iniciada"
+}
+
+Para poder acceder a rutas protegidas como '/inventors' hay que ingresar el token.
+
+En el postman, en la solapa authorization, poner:
+- TYPE: API KEY
+- KEY: x-access-token
+- VALUE: el token que nos dió al iniciar sesión
+- ADD TO: Header
+
+Con eso el token ya esta ingresado y se podran ver/editar/borrar los inventores

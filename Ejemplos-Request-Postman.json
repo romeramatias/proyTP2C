@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "832282a3-ea1d-4994-82ad-34ba6215e0eb",
+		"name": "Desafio-2-Pruebas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get-Inventors",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/inventors/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"inventors",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-Inventor",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/inventors/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"inventors",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-PushInventor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n         \"_id\": 9,\r\n         \"first\": \"Bill\",\r\n         \"last\": \"Gates\",\r\n         \"year\": 1955,\r\n         \"img\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Marie_Curie%2C_portrait%2C_1900.jpg/220px-Marie_Curie%2C_portrait%2C_1900.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/inventors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"inventors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put-UpdateInventor",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n         \"_id\": 9,\r\n         \"first\": \"William\",\r\n         \"last\": \"Gates\",\r\n         \"year\": 1955,\r\n         \"img\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Marie_Curie%2C_portrait%2C_1900.jpg/220px-Marie_Curie%2C_portrait%2C_1900.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/inventors/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"inventors",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete-DeleteInventor",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/inventors/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"inventors",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-IniciarSesion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"romeramatias0@gmail.com\",\r\n    \"password\": \"pass00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/identificarse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"identificarse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-Registrarse",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"romeramatias\",\r\n    \"email\": \"romeramatias0@gmail.com\",\r\n    \"password\": \"pass00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/registrarse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"registrarse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-MiUsuario",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOGY3MTdlNGUzMzcwMDlmYzk2ZWIxNCIsImlhdCI6MTYwMzI0ODYyMywiZXhwIjoxNjAzMjQ5MjIzfQ.s0SFa9vA5F_kVgxeKmwEzJ3lwhK1tHGWZZQQpjHoTC8",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/miusuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"miusuario"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
