@@ -1,0 +1,203 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TP2-Desafio-2",
+		"_postman_id": "b8f186c0-0f51-f1cc-af84-61d8f2ffbe53",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Inventors",
+			"description": "",
+			"item": [
+				{
+					"name": "Create inventor",
+					"request": {
+						"url": "http://localhost:3000/inventors",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOTYwNmYzZWI1N2U3ZTliMTIzZmM2YiIsImlhdCI6MTYwMzY2OTA3OSwiZXhwIjoxNjA0MjczODc5fQ.ISFQ7Hx1rbFUcqgq4JS3nWeor6n01GJLOEkDftLRSao",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n         \"_id\": 20,\n         \"first\": \"New Inventor\",\n         \"last\": \"InventorLastName\",\n         \"year\": 2020,\n         \"img\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Marie_Curie%2C_portrait%2C_1900.jpg/220px-Marie_Curie%2C_portrait%2C_1900.jpg\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get All inventors",
+					"request": {
+						"url": "http://localhost:3000/inventors",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOTYwNmYzZWI1N2U3ZTliMTIzZmM2YiIsImlhdCI6MTYwMzY2OTA3OSwiZXhwIjoxNjA0MjczODc5fQ.ISFQ7Hx1rbFUcqgq4JS3nWeor6n01GJLOEkDftLRSao",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Inventor By ID",
+					"request": {
+						"url": "http://localhost:3000/inventors/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOTYwNmYzZWI1N2U3ZTliMTIzZmM2YiIsImlhdCI6MTYwMzY2OTA3OSwiZXhwIjoxNjA0MjczODc5fQ.ISFQ7Hx1rbFUcqgq4JS3nWeor6n01GJLOEkDftLRSao",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update inventor",
+					"request": {
+						"url": "http://localhost:3000/inventors/10",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOTYwNmYzZWI1N2U3ZTliMTIzZmM2YiIsImlhdCI6MTYwMzY2OTA3OSwiZXhwIjoxNjA0MjczODc5fQ.ISFQ7Hx1rbFUcqgq4JS3nWeor6n01GJLOEkDftLRSao",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": 10,\n  \"first\": \"Steven Updated\",\n  \"last\": \"Jobs\",\n  \"year\": 1867,\n  \"img\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Marie_Curie%2C_portrait%2C_1900.jpg/220px-Marie_Curie%2C_portrait%2C_1900.jpg\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete inventor",
+					"request": {
+						"url": "http://localhost:3000/inventors/20",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOTYwNmYzZWI1N2U3ZTliMTIzZmM2YiIsImlhdCI6MTYwMzY2OTA3OSwiZXhwIjoxNjA0MjczODc5fQ.ISFQ7Hx1rbFUcqgq4JS3nWeor6n01GJLOEkDftLRSao",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"description": "",
+			"item": [
+				{
+					"name": "Registrarse",
+					"request": {
+						"url": "http://localhost:3000/users/signin",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "//Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOTYwMzg2OTI5N2FhZTdkOTMzOTcwNCIsImlhdCI6MTYwMzY2Njg0MSwiZXhwIjoxNjA0MjcxNjQxfQ.ZZoZznWoFIWEweU_mZHlvodFGIJfu6ew6WX62PMdGA8",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\t\"username\" : \"uprueba\",\n         \"email\" : \"usuario@prueba.com\",\n         \"password\": \"somePassword\"\n}"
+						},
+						"description": "Registarse como usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Iniciar Sesion",
+					"request": {
+						"url": "http://localhost:3000/users/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n         \"email\" : \"usuario@prueba.com\",\n         \"password\": \"somePassword\"\n}"
+						},
+						"description": "Iniciar Sesión y obtener token"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by id",
+					"request": {
+						"url": "http://localhost:3000/users/5f90b10d32fc6d1ea01463dd",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOTYwNmYzZWI1N2U3ZTliMTIzZmM2YiIsImlhdCI6MTYwMzY2OTA3OSwiZXhwIjoxNjA0MjczODc5fQ.ISFQ7Hx1rbFUcqgq4JS3nWeor6n01GJLOEkDftLRSao",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n         \"email\" : \"usuario@prueba.com\",\n         \"password\": \"somePassword\"\n}"
+						},
+						"description": "Iniciar Sesión y obtener token"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -10,13 +10,13 @@ async function writeInventorsMoc(inventors) {
    return await fs.writeFile(PATH, JSON.stringify(inventors, null, ""));
 }
 
-async function getAllInventorsMoc() {
+async function getAll() {
    const connectionMongo = await connection.getConnection();
    const inventors = await connectionMongo.db("ejemplo_tp2").collection("inventors").find().toArray();
    return inventors;
 }
 
-async function getInventorMoc(id) {
+async function getById(id) {
    const connectionMongo = await connection.getConnection();
    const inventor = await connectionMongo
       .db("ejemplo_tp2")
@@ -25,13 +25,13 @@ async function getInventorMoc(id) {
    return inventor;
 }
 
-async function pushInventorMoc(inventor) {
+async function create(inventor) {
    const connectionMongo = await connection.getConnection();
    const resultado = await connectionMongo.db("ejemplo_tp2").collection("inventors").insertOne(inventor);
    return resultado;
 }
 
-async function updateInventorMoc(inventor) {
+async function update(inventor) {
    const connectionMongo = await connection.getConnection();
    const query = { _id: parseInt(inventor._id) };
    const newValues = {
@@ -46,7 +46,7 @@ async function updateInventorMoc(inventor) {
    return result;
 }
 
-async function deleteInventorMoc(id) {
+async function removeById(id) {
    const connectionMongo = await connection.getConnection();
    const result = await connectionMongo
       .db("ejemplo_tp2")
@@ -55,4 +55,4 @@ async function deleteInventorMoc(id) {
    return result;
 }
 
-module.exports = { getAllInventorsMoc, getInventorMoc, pushInventorMoc, updateInventorMoc, deleteInventorMoc };
+module.exports = { getAll, getById, create, update, removeById };

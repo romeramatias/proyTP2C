@@ -3,18 +3,16 @@ const config = require("../config");
 const jwt = require("jsonwebtoken");
 
 function verificarToken(req, res, next) {
-   const token = req.headers["x-access-token"];
-   if (!token) {
-      return res.status(401).json({ autorizacion: false, mensaje: "No hay ingresado un token" });
-   }
+   const token = req.headers.authorization ? req.headers.authorization.split(" ")[1] : null;
    try {
       const tokenDecoded = jwt.verify(token, config.secret);
       req.userId = tokenDecoded.id;
+      next();
    } catch (error) {
-      return res.status(401).json({ autorizacion: false, mensaje: error });
+      return res.status(401).json({
+         message: 'Auth failed'
+     });
    }
-
-   next();
 }
 
 module.exports = verificarToken;
