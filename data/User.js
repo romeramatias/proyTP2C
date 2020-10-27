@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 
 async function create(user) {
    const connectionMongo = await connection.getConnection();
+   console.log(user);
    if (!user.hasOwnProperty("username") || !user.hasOwnProperty("email") || !user.hasOwnProperty("password"))
       throw "Campos faltantes";
    user.password = await encriptarPassword(user.password);
