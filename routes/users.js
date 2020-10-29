@@ -29,13 +29,15 @@ router.post("/signin", async (req, res, next) => {
 
    if(userEnBase!=null){
       res.status(400).send("Este usuario ya existe");
+   } else {
+      try {
+         await userRepository.create(user);
+         res.json({ autorizacion: true, mensaje: "Usuario registrado, inicie sesion para obtener un token" });
+      } catch (error) {
+         res.status(500).send(error);
+      }
    }
-   try {
-      await userRepository.create(user);
-      res.json({ autorizacion: true, mensaje: "Usuario registrado, inicie sesion para obtener un token" });
-   } catch (error) {
-      res.status(500).send(error);
-   }
+  
 });
 
 router.get("/:userId", verificarToken, async (req, res, next) => {
