@@ -9,8 +9,10 @@ function verificarToken(req, res, next) {
       req.userId = tokenDecoded.id;
       next();
    } catch (error) {
+      console.log(error)
       return res.status(401).json({
-         message: 'Auth failed'
+         message: error
+         
      });
    }
 }

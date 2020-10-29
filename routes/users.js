@@ -12,7 +12,6 @@ router.post("/login", async (req, res, next) => {
    if (!user) {
       return res.status(404).send(`No existe usuario con mail: ${email}`);
    }
-   console.log(user.password)
    const passValida = await userRepository.validarPasswordBcrypt(email, password);
 
    if (!passValida) {
@@ -40,13 +39,6 @@ router.post("/signin", async (req, res, next) => {
   
 });
 
-router.get("/:userId", verificarToken, async (req, res, next) => {
-   const user = await userRepository.getById(req.params.userId);
-   const token = req.headers.authorization ? req.headers.authorization.split(" ")[1] : null;
-   if (!user) {
-      return res.status(404).send("Usuario no encontrado");
-   }
-   res.json({ usuario: user.username, token: token });
-});
+
 
 module.exports = router;
