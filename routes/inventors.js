@@ -23,8 +23,8 @@ router.post("/", async (req, res) => {
    const inventor = req.body;
    try {
       const result = await inventorsRepository.create(inventor);
-      if(result.insertedCount > 0){
-         res.send("El inventor fue creado exitosamente");
+      if(result.insertedCount == 1){
+         res.status(201).send("El inventor fue creado exitosamente");
       }else{
          res.status(500).send("Se produjo un error al intentar crear el inventor");
       }
@@ -63,7 +63,8 @@ router.delete("/:id", async (req, res) => {
       try {
          const result = await inventorsRepository.removeById(req.params.id);
          if(result.deletedCount === 1){
-            res.send("El inventor fue removido exitosamente");
+            res.send("El inventor con id " + req.params.id + " fue removido exitosamente");
+
          }else{
             res.status(500).send("Se produjo un error al intentar eliminar el inventor con el id ingresado");
          }

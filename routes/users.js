@@ -23,7 +23,13 @@ router.post("/login", async (req, res, next) => {
 });
 
 router.post("/signin", async (req, res, next) => {
+   const {email} = req.body;
+   const userEnBase = await userRepository.getByEmail(email);
    const user = req.body;
+
+   if(userEnBase!=null){
+      res.status(400).send("Este usuario ya existe");
+   }
    try {
       await userRepository.create(user);
       res.json({ autorizacion: true, mensaje: "Usuario registrado, inicie sesion para obtener un token" });
