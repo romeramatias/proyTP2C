@@ -1,12 +1,13 @@
 // Importamos cliente de mongo
+require('dotenv').config()
 // const mongoClient = require("mongodb").MongoClient;
 const { MongoClient } = require("mongodb");
 
 // Crear variables de entorno, sacar hardcode del cluster connection
 
 // Cadena de conexion para mongo
-const uriMongo =
-   "mongodb+srv://romeramatias:pass21@cluster0.nhbax.azure.mongodb.net/ejemplo_tp2.inventors?retryWrites=true&w=majority";
+const uriMongo = process.env.URIMONGO;
+   
 
 const client = new MongoClient(uriMongo, { useUnifiedTopology: true, useNewUrlParser: true });
 
